@@ -11,17 +11,16 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @NodeEntity
 public class Person {
 
 	@Id
 	@GeneratedValue
-	private long id;
+	private Long id;
 
 	private String name;
-	private String userName;
-	private int age;
+
+	private Integer age;
 	@Relationship(type = "LIKES")
 	private List<Language> likes;
 	@Relationship(type = "WORKS")
