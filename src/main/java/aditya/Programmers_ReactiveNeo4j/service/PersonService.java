@@ -3,15 +3,18 @@ package aditya.Programmers_ReactiveNeo4j.service;
 import aditya.Programmers_ReactiveNeo4j.domain.Person;
 import aditya.Programmers_ReactiveNeo4j.repository.PersonRepository;
 import org.neo4j.springframework.data.core.ReactiveNeo4jClient;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
+@Service
 public class PersonService {
 
 
 	private final PersonRepository personRepository;
 	private final ReactiveNeo4jClient reactiveNeo4jClient;
 
-
+	@Autowired
 	public PersonService(PersonRepository personRepository, ReactiveNeo4jClient reactiveNeo4jClient) {
 		this.personRepository = personRepository;
 		this.reactiveNeo4jClient = reactiveNeo4jClient;
