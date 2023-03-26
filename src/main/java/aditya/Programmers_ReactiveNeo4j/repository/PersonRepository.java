@@ -11,6 +11,4 @@ public interface PersonRepository extends ReactiveNeo4jRepository<Person,Long> {
 
 	@Query("CREATE (p:Person {name:$name}) RETURN p")
 	Mono<Person> createPerson(String name);
-
-
 }

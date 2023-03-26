@@ -19,7 +19,7 @@ public class PersonService {
 		person.setName(name);
 		client.query("CREATE (p:Person {name:`$name`}) RETURN p")
 			.bind(person.getName())
-			.to("name").fetch().one();
+			.to("name");
 		return null;
 	}
 
