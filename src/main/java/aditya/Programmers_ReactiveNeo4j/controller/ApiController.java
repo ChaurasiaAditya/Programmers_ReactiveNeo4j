@@ -3,10 +3,10 @@ package aditya.Programmers_ReactiveNeo4j.controller;
 import aditya.Programmers_ReactiveNeo4j.domain.Person;
 import aditya.Programmers_ReactiveNeo4j.service.PersonService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.repository.query.Param;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
 @RequiredArgsConstructor
@@ -19,10 +19,5 @@ public class ApiController {
 	@PostMapping("/create")
 	public Mono<Person> createPerson() {
 		return personService.createPerson("sar");
-	}
-
-	@PostMapping("/create1")
-	public Mono<Person> createOne (@RequestBody String name) {
-		return this.personService.createOne(name);
 	}
 }
