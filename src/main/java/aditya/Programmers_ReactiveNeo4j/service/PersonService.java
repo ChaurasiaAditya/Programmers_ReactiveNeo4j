@@ -15,10 +15,8 @@ public class PersonService {
 	private final ReactiveNeo4jClient client;
 
 	public Mono<Person> createOne(String name) {
-		Person person = new Person();
-		person.setName(name);
 		client.query("CREATE (p:Person {name:`$name`}) RETURN p")
-			.bind(person.getName())
+			.bind(name)
 			.to("name");
 		return null;
 	}
